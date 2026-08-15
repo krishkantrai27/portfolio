@@ -1,0 +1,39 @@
+---
+import type { ISkill } from "@/constants/skillStack";
+import { Image } from "astro:assets";
+
+type Props = {
+    stack: readonly ISkill[];
+    className?: string;
+};
+
+const { stack, className }: Props = Astro.props;
+---
+
+<div
+    class={`Fade_Up grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 xs:gap-3 sm:gap-4 ${className}`}
+>
+    {
+        stack.map((obj) => (
+            <a
+                href={obj.link}
+                title={obj.name}
+                class="Fade_Stagger flex_center flex-col gap-1.5 xs:gap-2 w-[84px] h-[84px] xs:w-24 xs:h-24 rounded-lg skillGradient p-1.5 xs:p-2"
+                target="_blank"
+                rel="noreferrer"
+            >
+                <div class="flex_center min-h-[28px] xs:min-h-[35px] aspect-square">
+                    <Image
+                        src={obj.icon}
+                        alt={obj.name.replaceAll(" ", "_") + "_Icon"}
+                        width={35}
+                        height={35}
+                    />
+                </div>
+                <span class="text-[0.75rem] xs:text-[0.9em] overflow-ellipsis whitespace-nowrap overflow-hidden text-center w-full px-1">
+                    {obj.name}
+                </span>
+            </a>
+        ))
+    }
+</div>

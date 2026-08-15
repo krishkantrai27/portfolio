@@ -1,0 +1,137 @@
+---
+import { GithubIcon } from "@/assets/SVGs";
+import type { IProject } from "@/config/ProjectsList";
+import { Image } from "astro:assets";
+import { ArrowUpRightIcon } from "lucide-preact";
+
+type Props = {
+    project: IProject;
+    className?: string;
+};
+
+const { project, className }: Props = Astro.props;
+const hasCustomLiveUrl = project.liveUrl && project.liveUrl !== project.sourceUrl;
+---
+
+<div
+    class={`Project_Stagger Card_Main w-full md:h-[530px] flex flex-col bg-footerAltLite/80 overflow-hidden mt-3 opacity-0 rounded-xl border border-white/5 shadow-lg ${className}`}
+>
+    <!-- Project Preview Image with consistent aspect ratio -->
+    <a
+        href={`/projects/${project?.name.replaceAll(" ", "-").toLowerCase()}`}
+        class="Projects_Preview relative w-full p-1.5 block shrink-0"
+    >
+        <div class="w-full aspect-[16/10] overflow-hidden rounded-lg bg-background/50 relative">
+            <Image
+                class="Card_Image w-full h-full object-cover object-top rounded-lg transition-transform duration-300 hover:scale-105"
+                src={project.previewImage}
+                alt={`Project_ScreenShot_${project.name}`}
+                widths={[346, project.previewImage.width]}
+                sizes={`(max-width: 720px) 346px, ${project.previewImage.width}px`}
+                loading="lazy"
+            />
+            <div
+                class="absolute inset-0 bg-foreground dark:bg-background rounded-lg transition-opacity opacity-5 hover:opacity-0"
+            >
+            </div>
+        </div>
+    </a>
+
+    <!-- Card Content -->
+    <div
+        class="relative w-full flex flex-col flex-1 text-[0.95em] p-3 md:px-5 md:py-3.5 min-h-0 justify-between"
+    >
+        <!-- Project Title & Logo Row (Fixed Height for Alignment) -->
+        <div class="flex justify-between items-center h-[56px] shrink-0">
+            <!-- Project Title & Logo -->
+            <div class="flex justify-start items-center gap-3.5 min-w-0">
+                <Image
+                    src={project.logoImage}
+                    alt={`Project_Logo_${project.name}`}
+                    width={48}
+                    height={48}
+                    loading="lazy"
+                    class="size-[48px] shrink-0 object-contain rounded-lg"
+                />
+
+                <div class="flex flex-col min-w-0">
+                    <h3 class="font-ubuntu text-[1.15rem] md:text-[1.3rem] font-semibold truncate">
+                        {project.name}
+                    </h3>
+                </div>
+            </div>
+
+            <!-- Project Links -->
+            <div class="flex items-center gap-2 shrink-0">
+                <a
+                    href={project.sourceUrl}
+                    title={`${project.name} - GitHub`}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="Projects_Link flex p-1.5 rounded-lg bg-background/60 hover:bg-background transition-colors text-muted-foreground hover:text-foreground"
+                >
+                    <GithubIcon width={20} height={20} aria-hidden="true" />
+                    <span class="sr-only">
+                        {project.name} - GitHub
+                    </span>
+                </a>
+                {
+                    hasCustomLiveUrl && (
+                        <a
+                            href={project.liveUrl}
+                            title={`${project.name} Preview`}
+                            target="_blank"
+                            rel="noreferrer"
+                            class="Projects_Link flex p-1.5 rounded-lg bg-background/60 hover:bg-background transition-colors"
+                        >
+                            <ArrowUpRightIcon aria-hidden="true" />
+                            <span class="sr-only">
+                                {project.name} Preview
+                            </span>
+                        </a>
+                    )
+                }
+            </div>
+        </div>
+
+        <!-- Project Description (Centered with consistent height) -->
+        <div class="flex flex-1 items-center justify-center py-2 px-1">
+            <p class="text-center w-full text-xs md:text-sm text-foreground/80 line-clamp-3 leading-relaxed">
+                {project.shortDescription}
+            </p>
+        </div>
+
+        <!-- Technologies Icons (Pinned to bottom baseline) -->
+        <div class="w-full flex_center gap-3 shrink-0 h-[32px] pt-1 border-t border-white/5">
+            {
+                project.technologies?.filter(Boolean).map((tech, index) => {
+                    // LIMIT TECH STACK TO 12 ITEMS
+                    if (project.technologies.length > 12) {
+                        if (index > 12) return;
+
+                        if (index === 12) {
+                            return (
+                                <div class="flex items-center justify-center w-6 h-6 p-1 text-xs bg-background/60 rounded">
+                                    +&nbsp;{project.technologies.length - 12}
+                                </div>
+                            );
+                        }
+                    }
+
+                    if (!tech?.icon) return null;
+
+                    return (
+                        <Image
+                            src={tech.icon}
+                            alt={`TechIcon ${tech.title}`}
+                            width={22}
+                            height={22}
+                            loading="lazy"
+                            class="size-[22px] object-contain transition-transform hover:scale-110"
+                        />
+                    );
+                })
+            }
+        </div>
+    </div>
+</div>

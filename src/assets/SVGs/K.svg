@@ -1,0 +1,12 @@
+<svg width="58" height="72" viewBox="0 0 58 72" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="GradientK" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop stop-color="#6600FF" offset="0%" />
+            <stop stop-color="#ff00bf" offset="100%" />
+        </linearGradient>
+    </defs>
+
+    <g stroke-linecap="round" stroke-linejoin="round" fill="url(#GradientK)">
+        <path d="M 2 4 C 2 2.895 2.895 2 4 2 L 15 2 C 16.105 2 17 2.895 17 4 L 17 68 C 17 69.105 16.105 70 15 70 L 4 70 C 2.895 70 2 69.105 2 68 Z M 19 36 L 41 4 C 41.7 3 42.8 2 44.5 2 L 54 2 C 55.6 2 56.4 3.8 55.3 5.2 L 31 38 L 56 66.8 C 57 68.2 56 70 54.2 70 L 44 70 C 42.5 70 41.3 69.1 40.5 68 L 19 42 Z" />
+    </g>
+</svg>

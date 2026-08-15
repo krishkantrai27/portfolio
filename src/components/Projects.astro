@@ -1,0 +1,53 @@
+---
+import { SectionTitle, ProjectCard } from "@components/UI";
+
+// Lazy loading ProjectInfo
+const ProjectInfo = import("@/config/ProjectsList");
+const { PROJECTS_LIST } = await ProjectInfo;
+
+const PROJECT_LIST_LIMIT = 9;
+const SHOW_ALL_PROJECTS =
+    PROJECTS_LIST.filter((p) => !p.isHidden).length > PROJECT_LIST_LIMIT;
+---
+
+<section id="projects" class="w-full min-h-fit py-8 pt-16 lg:py-12 lg:pt-20 bg-background">
+    <SectionTitle title="My Projects" color="secondary">
+        <!-- Empty Projects Grid -->
+        {
+            PROJECTS_LIST.length === 0 && (
+                <p class="text-center text-muted-foreground mt-10">
+                    No projects to display at the moment. Please check back
+                    later.
+                </p>
+            )
+        }
+
+        <div
+            class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,500px),1fr))] gap-x-6 gap-y-3 mt-4 mb-8"
+        >
+            {
+                PROJECTS_LIST.map((project, index) => {
+                    if (project?.isHidden) return;
+
+                    // LIMIT PROJECT LIST TO 9 ITEMS
+                    if (index > PROJECT_LIST_LIMIT + 2) return;
+
+                    return <ProjectCard project={project} />;
+                })
+            }
+        </div>
+
+        <!-- View all projects -->
+        {
+            SHOW_ALL_PROJECTS && (
+                <a
+                    href="/projects"
+                    title="View All Projects"
+                    class="flex items-center mx-auto w-fit px-4 py-2 bg-footerAlt border border-accent font-medium"
+                >
+                    View All Projects
+                </a>
+            )
+        }
+    </SectionTitle>
+</section>
