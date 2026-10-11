@@ -2,10 +2,6 @@
   command = "npm run build"
   publish = "dist"
 
-[functions]
-  directory = "netlify/functions"
-  node_bundler = "esbuild"
-
 [build.environment]
   SECRETS_SCAN_OMIT_KEYS = "LLM_PROVIDER,GEMINI_MODEL,GROQ_MODEL,SITE_URL"
 
