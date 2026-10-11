@@ -23,12 +23,6 @@ desktop.ini
 .idea/
 *.swp
 
-.agent/
-.agents/
-.gemini/
-.antigravity/
-.claude/
-.cursor/
 
 coverage/
 .cache/
