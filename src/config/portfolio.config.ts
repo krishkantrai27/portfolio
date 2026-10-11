@@ -18,7 +18,7 @@ export const siteConfig = {
     title: "Krish Kant Rai | Full Stack Java Developer",
     description: "Krish Kant Rai is a Full Stack Java Developer skilled in Spring Boot, React.js, and MySQL, building secure REST APIs and scalable web applications.",
     canonical: "https://krishkant.netlify.app/",
-    googleSiteVerification: "",
+    googleSiteVerification: " "TTGZ9Nic8vk04ogBv-j6wbPPYHs3DRGtyhV1OT5WJaQ",
     keywords: "Krish, Krish Kant Rai, Full Stack Java Developer, Spring Boot, React.js, MySQL, REST APIs, Spring Security, JWT Authentication, Java, JavaScript, Docker, Git, CI/CD, Maven, Postman, Swagger, Web Developer, Portfolio",
     avatar: "https://raw.githubusercontent.com/krishkantrai27/krishkantrai27.github.io/main/Avatar.webp",
     siteUrl: "https://krishkant.netlify.app/",
