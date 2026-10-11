@@ -79,6 +79,9 @@ export const TECH_STACK = {
     // Databases
     ...buildTechStack(SKILL_STACK.DatabaseStack),
 
+    // AI & GenAI
+    ...buildTechStack(SKILL_STACK.AIStack),
+
     // DevOps & Tools
     ...buildTechStack(SKILL_STACK.DevOpsStack),
 
@@ -116,6 +119,48 @@ export const COMMON_FEATURES = {
 export const PROJECTS_LIST: IProject[] = [
     {
         isHidden: false,
+        name: "StackForge",
+        shortDescription: "Zero-dependency vector database in Java with HNSW, KD-Tree and Brute-Force search, plus a local Ollama RAG pipeline.",
+        description: "A zero-dependency vector database built from scratch in Java 17+ featuring side-by-side HNSW graph search, KD-Tree indexing, and Brute-Force search across Cosine, Euclidean, and Manhattan metrics. Integrated with a local RAG pipeline via Ollama (nomic-embed-text and llama3.2) for document ingestion, top-k context retrieval, and document-grounded answers. Includes a REST API for vector operations and search benchmarking alongside an interactive Web UI with live PCA vector projections.",
+        logoImage: LOGOS.StackForgeLogo,
+        previewImage: SCREENSHOTS.StackForgeShots,
+        deviceMockupImage: MOCKUPS.ClimateMockup,
+        theme: "amber",
+        status: "completed",
+        liveUrl: "https://github.com/krishkantrai27/StackForge",
+        sourceUrl: "https://github.com/krishkantrai27/StackForge",
+        technologies: [
+            TECH_STACK.Java,
+            TECH_STACK.Ollama,
+            TECH_STACK.RAG,
+            TECH_STACK.VectorDatabases,
+            TECH_STACK.VectorEmbeddings,
+            TECH_STACK.RESTAPIs,
+            TECH_STACK.Maven,
+            TECH_STACK.Git,
+            TECH_STACK.GitHub,
+        ],
+        features: [
+            {
+                title: "Custom Vector Search Engine",
+                description: "HNSW, KD-Tree, and Brute-Force algorithms with Cosine, Euclidean, and Manhattan metrics."
+            },
+            {
+                title: "Local RAG Pipeline",
+                description: "Ollama integration with nomic-embed-text and llama3.2 for top-k context retrieval and document-grounded answers."
+            },
+            {
+                title: "Live PCA Visualization",
+                description: "Interactive 2D vector visualization with live search benchmarking across graph and tree index structures."
+            },
+            COMMON_FEATURES.REST_API,
+            COMMON_FEATURES.PERFORMANCE,
+        ],
+        logoSize: 90,
+        versions: [],
+    },
+    {
+        isHidden: false,
         name: "ProbeLink",
         shortDescription: "ISP Network Infrastructure Planning & Site Survey Tool for MDUs, commercial buildings, and campuses.",
         description: "An ISP Network Infrastructure Planning and Site Survey platform engineered during Infosys Virtual Internship 6.0. Organizes sites into hierarchical properties, buildings, floors, and spaces with an interactive canvas for floor plans and polygon geometry. Enables field engineers to log equipment, record cable routes, complete dynamic checklists, and generate RF heatmaps with automated one-click PDF reports.",
@@ -136,6 +181,8 @@ export const PROJECTS_LIST: IProject[] = [
             TECH_STACK.MySQL,
             TECH_STACK.MapLibreGL,
             TECH_STACK.iText7,
+            TECH_STACK.Java2D,
+            TECH_STACK.ApacheCommonsCSV,
             TECH_STACK.Docker,
             TECH_STACK.Maven,
         ],

@@ -29,11 +29,12 @@ export const ProgrammingLanguagesStack = [
         link: "https://www.typescriptlang.org/",
     },
     {
-        name: "C",
-        description: "Foundational procedural programming language with low-level memory management and high execution speed.",
-        icon: SKILLS.CIcon,
-        link: "https://en.cppreference.com/w/c",
+        name: "Python",
+        description: "Versatile language for artificial intelligence, data science, automation, and backend development.",
+        icon: SKILLS.PythonIcon,
+        link: "https://www.python.org/",
     },
+
 ] as const;
 // #endregion
 
@@ -121,6 +122,41 @@ export const DatabaseStack = [
         icon: SKILLS.MysqlIcon,
         link: "https://www.mysql.com/",
     },
+    {
+        name: "Vector Databases",
+        description: "Specialized database engines engineered to store, index, and query high-dimensional vector embeddings.",
+        icon: SKILLS.VectorDatabasesIcon,
+        link: "https://en.wikipedia.org/wiki/Vector_database",
+    },
+] as const;
+// #endregion
+
+// #region AI & GenAI
+export const AIStack = [
+    {
+        name: "LangChain",
+        description: "Framework for building context-aware applications powered by large language models and chains.",
+        icon: SKILLS.LangChainIcon,
+        link: "https://www.langchain.com/",
+    },
+    {
+        name: "RAG",
+        description: "Retrieval-Augmented Generation architecture combining vector search context with LLM inference.",
+        icon: SKILLS.RagIcon,
+        link: "https://en.wikipedia.org/wiki/Retrieval-augmented_generation",
+    },
+    {
+        name: "Vector Embeddings",
+        description: "High-dimensional numerical representations capturing semantic meaning of text and data.",
+        icon: SKILLS.VectorEmbeddingsIcon,
+        link: "https://en.wikipedia.org/wiki/Word_embedding",
+    },
+    {
+        name: "Ollama",
+        description: "Framework for running and embedding open-source large language models locally.",
+        icon: SKILLS.OllamaIcon,
+        link: "https://ollama.com/",
+    },
 ] as const;
 // #endregion
 
@@ -143,12 +179,6 @@ export const DevOpsStack = [
         description: "Containerization platform to package applications and dependencies into portable containers.",
         icon: SKILLS.DockerIcon,
         link: "https://www.docker.com/",
-    },
-    {
-        name: "CI/CD",
-        description: "Automated continuous integration and delivery pipelines for testing and deployment.",
-        icon: SKILLS.CicdIcon,
-        link: "https://resources.github.com/ci-cd/",
     },
     {
         name: "Maven",
@@ -215,6 +245,12 @@ export const AdditionalSkillsStack = [
         link: "https://en.wikipedia.org/wiki/Operating_system",
     },
     {
+        name: "Computer Network",
+        description: "Network architecture, TCP/IP protocol suite, HTTP/HTTPS, socket programming, and network security concepts.",
+        icon: SKILLS.ComputerNetworkIcon,
+        link: "https://en.wikipedia.org/wiki/Computer_network",
+    },
+    {
         name: "OOP",
         description: "Object-Oriented Programming principles: Encapsulation, Inheritance, Polymorphism, and Abstraction.",
         icon: SKILLS.OopIcon,
@@ -226,28 +262,22 @@ export const AdditionalSkillsStack = [
         icon: SKILLS.DsaIcon,
         link: "https://leetcode.com/",
     },
+    {
+        name: "Agile",
+        description: "Iterative software development framework emphasizing collaborative delivery and adaptive planning.",
+        icon: SKILLS.AgileIcon,
+        link: "https://en.wikipedia.org/wiki/Agile_software_development",
+    },
 ] as const;
 // #endregion
-
-// Default & alias exports
-export const WebLanguagesStack = ProgrammingLanguagesStack;
-export const FrontendLibrariesStack = FrontendStack;
-export const BackendApisStack = BackendStack;
-export const StateEventStack = AdditionalSkillsStack;
-export const CloudDevOpsStack = DevOpsStack;
-export const ToolingTestingStack = DevOpsStack;
-export const ConfigTemplatingStack = LibrariesStack;
-export const IdesDesignStack = AdditionalSkillsStack;
 
 export default {
     ProgrammingLanguagesStack,
     FrontendStack,
     BackendStack,
     DatabaseStack,
+    AIStack,
     DevOpsStack,
     LibrariesStack,
     AdditionalSkillsStack,
-    WebLanguagesStack,
-    FrontendLibrariesStack,
-    BackendApisStack,
 };

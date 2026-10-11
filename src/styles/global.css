@@ -275,10 +275,14 @@ html.lenis {
 }
 
 /* Header */
+.Header_Nav a {
+    position: relative;
+}
+
 .Header_Nav a::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 0;
     width: 100%;
     height: 2px;
@@ -287,9 +291,11 @@ html.lenis {
     transition: transform 0.25s ease-out;
 }
 
+.Header_Nav a:hover::after,
 .Header_Nav a.active::after {
     transform: scaleX(1);
 }
+
 
 
 /* Action Button Style */
@@ -620,3 +626,25 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: var(--text) !important;
     transition: background-color 999999s ease-in-out 0s;
 }
+
+body.cursor-hidden .Cursor-Main {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.chat-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) transparent;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+}
+
+.chat-scroll::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 9999px;
+}

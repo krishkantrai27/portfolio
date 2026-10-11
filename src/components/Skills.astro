@@ -1,20 +1,20 @@
 ---
 import { CenterTitle, SkillTitle, SkillGrid } from "@components/UI";
-const skillStacks = await import("@/constants/skillStack");
-
-const ProgrammingLanguagesStack = skillStacks.ProgrammingLanguagesStack;
-const FrontendStack = skillStacks.FrontendStack;
-const BackendStack = skillStacks.BackendStack;
-const DatabaseStack = skillStacks.DatabaseStack;
-const DevOpsStack = skillStacks.DevOpsStack;
-const LibrariesStack = skillStacks.LibrariesStack;
-const AdditionalSkillsStack = skillStacks.AdditionalSkillsStack;
+import {
+    ProgrammingLanguagesStack,
+    FrontendStack,
+    BackendStack,
+    DatabaseStack,
+    AIStack,
+    DevOpsStack,
+    LibrariesStack,
+    AdditionalSkillsStack,
+} from "@/constants/skillStack";
 ---
 
 <section id="skills" class="w-full min-h-fit py-8 pt-16 lg:py-12 lg:pt-20 bg-background">
     <CenterTitle title="Tech Stack" color="primary" />
 
-    <!-- Programming Languages & Frontend -->
     <div
         class="Fade_Up flex justify-center items-start flex-col lg:flex-row gap-2"
     >
@@ -33,7 +33,6 @@ const AdditionalSkillsStack = skillStacks.AdditionalSkillsStack;
         </div>
     </div>
 
-    <!-- Backend & Database Skills -->
     <div
         class="Fade_Up flex justify-center items-start flex-col lg:flex-row gap-2"
     >
@@ -52,7 +51,6 @@ const AdditionalSkillsStack = skillStacks.AdditionalSkillsStack;
         </div>
     </div>
 
-    <!-- DevOps & Libraries -->
     <div
         class="Fade_Up flex justify-center items-start flex-col lg:flex-row gap-2"
     >
@@ -66,15 +64,21 @@ const AdditionalSkillsStack = skillStacks.AdditionalSkillsStack;
         <div
             class="Fade_Up flex_center flex-col gap-4 py-4 xs:p-4 w-full h-full"
         >
-            <SkillTitle title="Libraries" color="primary" />
-            <SkillGrid stack={LibrariesStack} />
+            <SkillTitle title="AI & GenAI" color="primary" />
+            <SkillGrid stack={AIStack} />
         </div>
     </div>
 
-    <!-- Others / Additional Skills -->
     <div
         class="Fade_Up flex justify-center items-start flex-col lg:flex-row gap-2"
     >
+        <div
+            class="Fade_Up flex_center flex-col gap-4 py-4 xs:p-4 w-full h-full"
+        >
+            <SkillTitle title="Libraries" color="primary" />
+            <SkillGrid stack={LibrariesStack} />
+        </div>
+
         <div
             class="Fade_Up flex_center flex-col gap-4 py-4 xs:p-4 w-full h-full"
         >
@@ -83,4 +87,3 @@ const AdditionalSkillsStack = skillStacks.AdditionalSkillsStack;
         </div>
     </div>
 </section>
-

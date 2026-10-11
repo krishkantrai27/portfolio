@@ -4,6 +4,8 @@ import { AstroFont } from 'astro-font';
 import { join } from 'node:path';
 import { Header, MobileHeader, Cursor } from '@components/UI';
 import { Footer } from '@components/index';
+import { ChatAssistant } from '@components/Preact';
+
 
 import '@styles/themes.css';
 import '@styles/global.css';
@@ -169,6 +171,8 @@ const personStructuredData = {
 
         <Footer config={config.footer} />
         <Cursor />
+        <ChatAssistant client:idle />
         <script src="../script-loader.ts"></script>
+
     </body>
 </html>

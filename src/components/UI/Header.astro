@@ -1,5 +1,5 @@
 ---
-import { Download } from 'lucide-preact';
+import { Download, Sparkles } from 'lucide-preact';
 import ThemeDropdown from '@components/UI/ThemeDropdown.astro';
 import ThemeButton from '@components/UI/ThemeButton.astro';
 
@@ -10,20 +10,23 @@ const showThemeDropdown = true;
 
 <header id="header" class="hidden lg:block sticky top-0 max-w-[1800px] mx-auto z-50">
     <div
-        class="flex justify-between items-center w-full px-6 py-2 headerGradient backdrop-blur-[2px]"
+        class="grid grid-cols-3 items-center w-full px-6 py-2 headerGradient backdrop-blur-[2px]"
     >
-        <a href="#home" class="Fade_Down_Header font-satisfy font-bold text-[2em]">
+        <a href="#home" class="Fade_Down_Header font-satisfy font-bold text-[2em] justify-self-start">
             <span class="gradientText w-fit">{config.logotext}</span>
         </a>
 
-        <nav class="Header_Nav relative tracking-wide flex gap-6">
+        <nav class="Header_Nav justify-self-center relative tracking-wide flex items-center gap-6">
             <a class="Fade_Down_Header" href="#about">ABOUT</a>
             <a class="Fade_Down_Header" href="#skills">SKILLS</a>
             <a class="Fade_Down_Header" href="#projects">PROJECTS</a>
             <a class="Fade_Down_Header" href="#contact">CONTACT</a>
+            <a class="Fade_Down_Header inline-flex items-center gap-1.5 cursor-pointer" href="#" data-open-assistant>
+                <Sparkles size={14} />ASK AI
+            </a>
         </nav>
 
-        <div class="flex_center gap-4">
+        <div class="flex_center gap-4 justify-self-end">
             {showThemeDropdown && <ThemeDropdown className="Fade_Down_Header" idPrefix="Desktop" />}
             <ThemeButton className="Fade_Down_Header" />
 
@@ -40,6 +43,7 @@ const showThemeDropdown = true;
         </div>
     </div>
 </header>
+
 
 <script is:inline type="module">
     const headerElement = document.getElementById('header');
