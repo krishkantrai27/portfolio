@@ -15,7 +15,7 @@ export const themeConfig = ThemeOptions.SUNSET;
 
 // Site Configuration
 export const siteConfig = {
-    title: "Krish Kant Rai | Full Stack Java Developer",
+    title: "Krish Kant Rai",
     description: "Krish Kant Rai is a Full Stack Java Developer skilled in Spring Boot, React.js, and MySQL, building secure REST APIs and scalable web applications.",
     canonical: "https://krishkant.netlify.app/",
     googleSiteVerification: "TTGZ9Nic8vk04ogBv-j6wbPPYHs3DRGtyhV1OT5WJaQ",
