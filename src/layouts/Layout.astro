@@ -28,6 +28,18 @@ const personStructuredData = {
         'https://www.instagram.com/_krish_kant/',
     ],
 };
+
+const websiteStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${config.site.siteUrl}#website`,
+    name: 'Krish Kant Rai',
+    alternateName: ['Krish Kant Rai Portfolio'],
+    url: config.site.siteUrl,
+    publisher: {
+        '@id': `${config.site.siteUrl}#person`,
+    },
+};
 ---
 
 <!doctype html>
@@ -93,6 +105,11 @@ const personStructuredData = {
             is:inline
             type="application/ld+json"
             set:html={JSON.stringify(personStructuredData)}
+        />
+        <script
+            is:inline
+            type="application/ld+json"
+            set:html={JSON.stringify(websiteStructuredData)}
         />
 
         <AstroFont
