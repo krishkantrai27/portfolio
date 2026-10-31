@@ -23,25 +23,27 @@ const loadLocalEnv = () => {
 
 loadLocalEnv();
 
-const netlifyChatDevPlugin = () => ({
-  name: 'netlify-chat-dev',
+const netlifyDevPlugin = () => ({
+  name: 'netlify-dev',
   configureServer(server) {
     server.middlewares.use(async (req, res, next) => {
       const url = req.originalUrl || req.url || '';
-      if (url.startsWith('/.netlify/functions/chat') && req.method === 'POST') {
+      const match = url.match(/^\/\.netlify\/functions\/(chat|contact)(?:[/?].*)?$/);
+      if (match && req.method === 'POST') {
         loadLocalEnv();
         let body = '';
         req.on('data', (chunk) => { body += chunk; });
         req.on('end', async () => {
           try {
-            const chatModule = await import('./netlify/functions/chat.mjs');
-            const handler = chatModule.default;
+            const fnName = match[1];
+            const fnModule = await import(`./netlify/functions/${fnName}.mjs`);
+            const handler = fnModule.default;
             const fakeReq = new Request(`http://localhost${url}`, {
               method: 'POST',
               headers: req.headers,
               body: body,
             });
-            const response = await handler(fakeReq);
+            const response = await handler(fakeReq, { ip: req.socket?.remoteAddress || '127.0.0.1' });
             res.statusCode = response.status;
             response.headers.forEach((val, key) => res.setHeader(key, val));
             const responseText = await response.text();
@@ -73,7 +75,7 @@ export default defineConfig({
     })
   ],
   vite: {
-    plugins: [tailwindcss(), netlifyChatDevPlugin()]
+    plugins: [tailwindcss(), netlifyDevPlugin()]
   },
   build: {
     cssCodeSplit: true,
