@@ -75,7 +75,7 @@ export const aboutConfig = {
     description: [
         "Hey there! 👋🏻 I'm Krish Kant Rai, a Full Stack Java Developer skilled in Spring Boot, React.js, and MySQL, with hands-on experience building secure REST APIs and JWT-based authentication.",
         "I am passionate about developing scalable web applications with efficient backend systems and clean, modern frontend interfaces. I specialize in backend architecture, role-based access control, and database design.",
-        "With a strong foundation in Object-Oriented Programming (OOP) and Data Structures & Algorithms (300+ problems solved on LeetCode), I focus on writing robust, maintainable, and high-performance code.",
+        "With a strong foundation in Object-Oriented Programming (OOP) and Data Structures & Algorithms (400+ problems solved on LeetCode), I focus on writing robust, maintainable, and high-performance code.",
         "If you're looking for a developer who ships secure, production-ready systems and scalable web applications, let's connect! 😄"
     ],
 }
